@@ -1,0 +1,16 @@
+# Configured via OVH-IP-Setup python script
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    $interface:
+      dhcp4: no
+      dhcp6: no
+      addresses: [$ip_addr/32]
+      gateway4: $gateway
+      nameservers:
+        addresses: [8.8.8.8,8.8.4.4]
+      routes:
+      - to: $gateway
+        via: 0.0.0.0
+        scope: link
